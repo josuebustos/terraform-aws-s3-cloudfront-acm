@@ -1,36 +1,3 @@
-<p align="center">
-    <img src="src/resources.jpg" alt="Logo" width="500" height="350">
-  
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com/?lines=Static+Website+on+S3+and+Cloudfront&font=Fira%20Code&center=true&width=480&height=50">
-</p>
-
-  <p align="center">
-    Host your static website on AWS under a minute.
-    <br />
-  </p>
-</p>
-
-
-
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#information">Information</a>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-  </ol>
-</details>
-
-
 
 ## Information
 
@@ -62,4 +29,27 @@ terraform init
 terraform plan
 terrafom apply --auto-approve
 
+```
+<br>
+
+## Update static content via Invalidation
+
+Uploading a file to S3 will automatically overwrite the existing file or files.
+
+To upload one file use this command:
+
+```basg=h
+aws s3 --profile default cp /Users/josuebustos/Downloads/html5-boilerplate/index.html  s3://awsdevcamp.com/
+```
+
+To upload multiple files use this commands:
+```bash
+aws s3 --profile default --recursive cp /path/to/your/directory/  s3://bucket-name/
+```
+
+## Invalidate file/s 
+
+To update the content in cloudfront you must invalidate it. Use the following command to do that.
+```bash
+aws cloudfront --profile default create-invalidation --distribution-id <re> --paths "/index.html"
 ```
