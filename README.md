@@ -39,7 +39,7 @@ Uploading a file to S3 will automatically overwrite the existing file or files.
 To upload one file use this command:
 
 ```basg=h
-aws s3 --profile default cp /Users/josuebustos/Downloads/html5-boilerplate/index.html  s3://awsdevcamp.com/
+aws s3 --profile default cp /path/to/your/file/index.html  s3://awsdevcamp.com/
 ```
 
 To upload multiple files use this commands:
