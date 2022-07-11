@@ -38,7 +38,7 @@ Uploading a file to S3 will automatically overwrite the existing file or files.
 
 To upload one file use this command:
 
-```basg=h
+```bash
 aws s3 --profile default cp /path/to/your/file/index.html  s3://awsdevcamp.com/
 ```
 
@@ -50,6 +50,14 @@ aws s3 --profile default --recursive cp /path/to/your/directory/  s3://bucket-na
 ## Invalidate file/s 
 
 To update the content in cloudfront you must invalidate it. Use the following command to do that.
+
+To update one file use the aws invalidation command:
+
 ```bash
-aws cloudfront --profile default create-invalidation --distribution-id <re> --paths "/index.html"
+aws cloudfront --profile default create-invalidation --distribution-id <Invalidation-ID> --paths "/index.html"
+```
+
+To update/invalidate all files in a directory use this command:
+```bash
+aws cloudfront create-invalidation --distribution-id <Invalidation-ID> --paths "/*"
 ```
