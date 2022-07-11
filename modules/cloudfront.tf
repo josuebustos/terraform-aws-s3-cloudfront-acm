@@ -14,14 +14,14 @@ resource "aws_cloudfront_distribution" "my_cloudfront" {
   enabled             = true
   is_ipv6_enabled     = true
   default_root_object = "index.html"
-  aliases = [var.domainName]
-  
+  aliases             = [var.domainName]
+
   restrictions {
     geo_restriction {
       restriction_type = "none"
     }
   }
-  
+
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods   = ["GET", "HEAD"]
@@ -48,9 +48,9 @@ resource "aws_cloudfront_distribution" "my_cloudfront" {
 
   viewer_certificate {
     cloudfront_default_certificate = true
-    acm_certificate_arn = aws_acm_certificate.mysite.arn
-    ssl_support_method       = "sni-only"
-    minimum_protocol_version = "TLSv1"
+    acm_certificate_arn            = aws_acm_certificate.mysite.arn
+    ssl_support_method             = "sni-only"
+    minimum_protocol_version       = "TLSv1"
   }
 
 }

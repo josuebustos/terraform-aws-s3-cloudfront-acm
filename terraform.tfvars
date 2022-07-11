@@ -1,3 +1,3 @@
-SiteTags = "Example"
+SiteTags = "AWS DEV CAMP"
 
-domainName = "example.com"
+domainName = "awsdevcamp.com"
