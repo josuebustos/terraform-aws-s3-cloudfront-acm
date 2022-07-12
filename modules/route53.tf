@@ -6,6 +6,11 @@ data "aws_route53_zone" "public" {
 resource "aws_acm_certificate" "mysite" {
   domain_name       = var.domainName
   validation_method = "DNS"
+
+subject_alternative_names = [
+    "*.awsdevcamp.com"
+  ]
+
   lifecycle {
     create_before_destroy = true
   }
