@@ -61,3 +61,8 @@ To update/invalidate all files in a directory use this command:
 ```bash
 aws cloudfront create-invalidation --distribution-id <Invalidation-ID> --paths "/*"
 ```
+
+<br>
+
+## Create a CloudFront Distribution for a Subdomain.
+
